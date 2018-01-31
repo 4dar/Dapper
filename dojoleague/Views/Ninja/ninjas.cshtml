@@ -1,0 +1,56 @@
+@model dojoleague.Models.Ninja
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title></title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <div id="registeredNinjas">
+            <h1>Registered Ninjas</h1>
+            <table class="table">
+                <thead>
+                    <th>Ninja Name</th>
+                    <th>Home Dojo</th>
+                </thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <br>
+        <div id="registerANinja">
+            <h1>Register a Ninja</h1>
+            <form asp-controller="Ninja" asp-action="registerNinja" method="POST">
+                <span asp-validation-for="name"></span>
+                <input placeholder="Ninja Name" asp-for="name"><br>
+
+                <span asp-validation-for="level"></span>
+                <input placeholder="Level" asp-for="level"><br>
+
+                <span asp-validation-for="description"></span>
+                <input placeholder="Description" asp-for="description"><br>
+
+                <span asp-validation-for="dojos_id"></span>
+                <select asp-for="dojos_id" class="form-control">
+                    <option value="0">Rogue</option>
+                @{
+                    @foreach(var dojo in ViewBag.allDojos)
+                    {
+                        <option value="@dojo.id">@dojo.name</option>
+                    }
+                }
+                </select>
+
+                <button value="submit" class="btn btn-info">Register</button><br>
+            </form>
+        </div>
+        <br>
+
+            <a href="/dojos"><button>View Dojos</button></a>
+
+    </body>
+</html>

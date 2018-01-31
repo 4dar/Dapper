@@ -1,0 +1,40 @@
+@model lostinthewoods.Models.Trail
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title></title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <br>
+        <a href="/"><button class="btn btn-info">Home</button></a>
+        <br>
+        <h1>Add a new Trail!</h1>
+        <form asp-controller="Trail" asp-action="createTrail" method="POST">
+            <span asp-validation-for="name"></span>
+            <input class="form-control" placeholder="Trail Name" asp-for="name">
+
+            <span asp-validation-for="description"></span>
+            <input class="form-control" placeholder="Description" asp-for="description">
+
+            <span asp-validation-for="length"></span>
+            <input class="form-control" placeholder="Length (miles)" asp-for="length">
+
+            <span asp-validation-for="elevation"></span>
+            <input class="form-control" placeholder="Elevation Change (feet)" asp-for="elevation">
+
+            <span asp-validation-for="latitude"></span>
+            <input class="form-control" placeholder="Latitude" asp-for="latitude">
+
+            <span asp-validation-for="longitude"></span>
+            <input class="form-control" placeholder="Longitude" asp-for="longitude">
+
+
+            <button class="btn btn-info" type="submit">Create</button>
+        </form>
+
+
+    </body>
+</html>

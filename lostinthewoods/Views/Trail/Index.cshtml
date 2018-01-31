@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title></title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+
+        <h1>Lost in the Woods!</h1>
+        @{
+        <table class="table">
+            <thead>
+                <th>Trail Name &nbsp;</th>
+                <th>Trail Length (miles) &nbsp;</th>
+                <th>Elevation Change (feet) &nbsp;</th>
+            </thead>
+                @foreach(var t in ViewBag.allTrails)
+                {
+                <tr>
+                    <td><a href="trails/@t.id">@t.name</a></td>
+                    <td>@t.length</td>
+                    <td>@t.elevation</td>
+                </tr>
+                }
+        </table>
+        }
+        <br><br><br>
+        <a href="/addTrail"><button class="btn btn-info">Add a trail</button></a>
+
+
+    </body>
+</html>
